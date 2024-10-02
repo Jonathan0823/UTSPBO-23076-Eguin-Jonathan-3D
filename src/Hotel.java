@@ -22,7 +22,8 @@ public class Hotel implements HotelInterface {
             System.out.println("1. Show rooms");
             System.out.println("2. Check availability");
             System.out.println("3. Order details");
-            System.out.println("4. Exit");
+            System.out.println("4. Back");
+            System.out.println("0. Exit");
         } else {
 
                 System.out.println("Menu:");
@@ -30,7 +31,8 @@ public class Hotel implements HotelInterface {
                 System.out.println("2. Order room");
                 System.out.println("3. Check availability");
                 System.out.println("4. Order details");
-                System.out.println("5. Exit");
+                System.out.println("5. Back");
+                System.out.println("0. Exit");
             
         }
         
@@ -47,9 +49,9 @@ public class Hotel implements HotelInterface {
                 System.out.format("%-7s - %-15s - %-7s\n", room[i], setStatus, roomPrice[i]);
             }
         } else {
+            System.out.println("Room        Price");
+            System.out.println("---------------------------------");
             for (int i = 0; i < room.length; i++) {
-                System.out.println("Room        Price");
-                System.out.println("---------------------------------");
                 if (roomAvailable[i]) {
                     System.out.format("%-7s - %-7s\n", room[i], roomPrice[i]);
                 }
