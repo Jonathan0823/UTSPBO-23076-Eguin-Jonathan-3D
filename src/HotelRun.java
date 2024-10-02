@@ -145,6 +145,6 @@ public class HotelRun {
             }
         }
         input.close();
-        System.out.println("\nThank you for visiting the hotel.");
+        System.out.println("Thank you for visiting the hotel.");
     }
 }
