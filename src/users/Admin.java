@@ -1,6 +1,6 @@
 package users;
 
-public class Admin extends Customer{
+public class Admin extends Customer {
     static int AdminId = 0;
     int id;
     String status = "admin";

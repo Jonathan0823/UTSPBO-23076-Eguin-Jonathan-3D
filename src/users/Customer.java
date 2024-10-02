@@ -11,6 +11,7 @@ public class Customer {
         this.id = customerId;
         this.name = name;
     }
+
     public void getInfo() {
         System.out.println("Customer ID: " + id + "\nName: " + name + "\nStatus: " + status);
     }

@@ -147,8 +147,15 @@ public class HotelRun {
                             System.out.println("\nPress enter to continue...");
                             input.nextLine();
                             break;
-                        
                         case 5:
+                            System.out.print("Enter room name: ");
+                            roomName = input.nextLine();
+                            hotel.checkOut(roomName, customer.name());
+                            System.out.println("\nPress enter to continue...");
+                            input.nextLine();
+                            break;
+                        
+                        case 6:
                             isLoop = false;
                             break;
 

@@ -31,7 +31,8 @@ public class Hotel implements HotelInterface {
                 System.out.println("2. Order room");
                 System.out.println("3. Check availability");
                 System.out.println("4. Order details");
-                System.out.println("5. Back");
+                System.out.println("5. Check out");
+                System.out.println("6. Back");
                 System.out.println("0. Exit");
             
         }
@@ -104,6 +105,20 @@ public class Hotel implements HotelInterface {
             }
         }
 
+    }
+
+    public void checkOut (String roomName, String customerName) {
+        for (int i = 0; i < room.length; i++) {
+            if (room[i].toLowerCase().equals(roomName.toLowerCase())) {
+                if(this.customerName[i].toLowerCase().equals(customerName.toLowerCase())) {
+                    roomAvailable[i] = true;
+                    this.customerName[i] = "";
+                    System.out.println("Room is checked out successfully.");
+                } else {
+                    System.out.println("You didn't reserved this room.");
+                }
+            }
+        }
     }
     
 
