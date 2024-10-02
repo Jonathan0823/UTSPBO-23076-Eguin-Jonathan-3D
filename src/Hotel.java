@@ -40,25 +40,30 @@ public class Hotel implements HotelInterface {
     public void showRoom(String status) {
         System.out.println("List of rooms:");
         if (status.equals("admin")) {
+            System.out.println("Room         Status        Price");
+            System.out.println("---------------------------------");
             for (int i = 0; i < room.length; i++) {
-                System.out.println(room[i] + " - " + roomAvailable[i] + " - " + customerName[i] + " - " + "Price = " + roomPrice[i]);
+                String setStatus = roomAvailable[i] ? "Available" : "Not Available";
+                System.out.format("%-7s - %-15s - %-7s\n", room[i], setStatus, roomPrice[i]);
             }
         } else {
             for (int i = 0; i < room.length; i++) {
+                System.out.println("Room        Price");
+                System.out.println("---------------------------------");
                 if (roomAvailable[i]) {
-                    System.out.println(room[i] + " - " + "Price = " + roomPrice[i]);
+                    System.out.format("%-7s - %-7s\n", room[i], roomPrice[i]);
                 }
             }
         }
     }
 
     public void orderRoom(String roomName, String customerName) {
-        System.out.println("Details: ");
+        System.out.println("\nDetails: ");
         System.out.println("Room: " + roomName);
         System.out.println("Customer: " + customerName);
-        System.out.println("Price: ");
         for (int i = 0; i < room.length; i++) {
-            if (room[i] == roomName.toLowerCase()) {
+            if (room[i].toLowerCase().equals(roomName.toLowerCase())) {
+                System.out.println("Price: " + roomPrice[i]);
                 if (roomAvailable[i]) {
                     roomAvailable[i] = false;
                     this.customerName[i] = customerName;
@@ -73,7 +78,7 @@ public class Hotel implements HotelInterface {
     
     public void checkAvailability(String roomName) {
         for (int i = 0; i < room.length; i++) {
-            if (room[i].equals(roomName.toLowerCase())) {
+            if (room[i].toLowerCase().equals(roomName.toLowerCase())) {
                 if (roomAvailable[i]) {
                     System.out.println(roomName + " is available.");
                 } else {
@@ -86,7 +91,7 @@ public class Hotel implements HotelInterface {
     public void orderDetails(String roomName) {
         System.out.println("Order details:");
         for (int i = 0; i < room.length; i++) {
-            if (room[i].equals(roomName.toLowerCase())) {
+            if (room[i].toLowerCase().equals(roomName.toLowerCase())) {
                 System.out.println("Room: " + room[i]);
                 System.out.println("Customer: " + customerName[i]);
                 System.out.println("Price: " + roomPrice[i]);

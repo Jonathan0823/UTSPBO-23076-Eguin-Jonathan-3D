@@ -30,7 +30,7 @@ public class HotelRun {
 
                 switch (choice) {
                     case 1:
-                        hotel.showRoom("admin");
+                        hotel.showRoom("customer");
                         System.out.println("\nPress enter to continue...");
                         input.nextLine();
                         break;
@@ -44,8 +44,9 @@ public class HotelRun {
                         break;
     
                     case 3:
-                        System.out.println("Enter room name: ");
+                        System.out.print("Enter room name: ");
                         roomName = input.nextLine();
+                        System.out.println();
                         hotel.orderDetails(roomName);
                         System.out.println("\nPress enter to continue...");
                         input.nextLine();
@@ -66,10 +67,70 @@ public class HotelRun {
 
         } else {
             System.out.println("Welcome Customer");
-            System.out.println("Enter your name: ");
+            System.out.print("Enter your name: ");
             String name = input.nextLine();
             Customer customer = new Customer(name);
-            hotel.showMenu("customer");
+
+            System.out.println("\nWelcome " + customer.name() + "\n");
+            
+            while (isLoop) {
+                customer.getInfo();
+                System.out.println();
+                hotel.showMenu("customer");
+    
+                System.out.print("Enter your choice: ");
+                int choice = input.nextInt();
+                input.nextLine();
+                System.out.println();
+
+
+                switch (choice) {
+                    case 1:
+                        hotel.showRoom("admin");
+                        System.out.println("\nPress enter to continue...");
+                        input.nextLine();
+                        break;
+
+                    case 2:
+                        System.out.print("Enter room name: ");
+                        roomName = input.nextLine();
+                        hotel.orderRoom(roomName, customer.name());
+                        System.out.println();
+                        System.out.println("\nPress enter to continue...");
+                        input.nextLine();
+                        break;
+    
+                    case 3:
+                        System.out.print("Enter room name: ");
+                        roomName = input.nextLine();
+                        hotel.checkAvailability(roomName);
+                        System.out.println("\nPress enter to continue...");
+                        input.nextLine();
+                        break;
+    
+                    case 4:
+                        System.out.print("Enter room name: ");
+                        roomName = input.nextLine();
+                        System.out.println();
+                        hotel.orderDetails(roomName);
+                        System.out.println("\nPress enter to continue...");
+                        input.nextLine();
+                        break;
+                    
+                    case 5:
+                        isLoop = false;
+                        break;
+
+                    default:
+                        System.out.println("Invalid choice");
+                        System.out.println("\nPress enter to continue...");
+                        input.nextLine();
+                        break;
+                }
+            }
+            
         }
+        input.close();
+        System.out.println("\nThank you for visiting the hotel.");
     }
 }
