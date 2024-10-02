@@ -10,10 +10,33 @@ public class HotelRun {
         Hotel hotel = new Hotel();
 
         while (isRunning) {
+            String status;
             
-            System.out.println("Welcome to the hotel");
-            System.out.print("Enter your status: ");
-            String status = input.nextLine();
+            System.out.println("\n\nWelcome to the hotel");
+            System.out.println("Enter your status: ");
+            System.out.println("1. Admin");
+            System.out.println("2. Customer");
+            int selector = input.nextInt();
+            input.nextLine();
+
+            if(selector == 1) {
+                String password = "admin";
+                System.out.print("Enter password: ");
+                String pass = input.nextLine();
+                if(!pass.equals(password)) {
+                    System.out.println("Invalid password");
+                    continue;
+                } else{
+                    status = "admin";
+                }
+            } else if(selector == 2) {
+                status = "customer";
+            } else {
+                System.out.println("Invalid choice");
+                continue;
+            }
+
+
     
             isLoop = true;
             if(status.equals("admin")) {
